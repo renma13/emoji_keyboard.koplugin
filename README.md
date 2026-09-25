@@ -49,3 +49,9 @@ If your KOReader build does not show that fallback-font menu, use the included p
 3. Restart KOReader fully.
 
 Do not use `NotoColorEmoji.ttf` first on Kindle. It is much larger and uses a color emoji format that is often unsupported or unreliable in embedded/e-ink FreeType rendering. The monochrome Noto Emoji font is the better fit for Paperwhite.
+
+## Disclaimer
+
+I made this plugin mainly for myself because I wanted an emoji keyboard in KOReader. I'm not a coder, and this project was created with the help of AI and tested on my own Kindle.
+
+I'm sharing it in case someone else finds it useful. Feel free to fork, modify, improve, or build on the code. There may be bugs or better ways to do things, so contributions are welcome!
