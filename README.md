@@ -6,13 +6,19 @@ This plugin adds an `emoji` layout to KOReader's built-in virtual keyboard. It i
 
 1. Copy `emoji_keyboard.koplugin` to KOReader's `plugins` folder.
    - On many Kindle KOReader installs, this is `koreader/plugins/emoji_keyboard.koplugin`.
-   - If you use Vera to sync/copy files, copy the folder as a folder, not just the Lua files inside it.
-2. Restart KOReader.
-3. Open KOReader's plugin list and enable **Emoji keyboard** if it is not already enabled.
-4. Open or create a note.
-5. Show the virtual keyboard, then tap or long-press the globe key and switch to the `emoji` layout.
+2. Download the monochrome `NotoEmoji-Regular.ttf` font from Google Fonts and copy it to `koreader/fonts/`.
+   - Do not use `NotoColorEmoji.ttf`, as color emoji fonts are often unsupported or unreliable on Kindle e-ink devices.
+3. In KOReader, open **Settings > Device > Additional UI fallback fonts** and enable `NotoEmoji-Regular.ttf`.
+   - If your KOReader build does not have this option, use the included patch:
+      - Copy `patches/1-emoji-ui-font-fallback.lua` to `koreader/patches/`.
+      - Make sure `NotoEmoji-Regular.ttf` is in `koreader/fonts/`.
+4. Restart KOReader fully.
+5. Open KOReader's plugin list and enable Emoji keyboard if it is not already enabled.
+6. Open or create a note, show the virtual keyboard, then tap or long-press the globe key and switch to the `emoji` layout.
 
 The plugin also adds a menu item under **More tools > Emoji keyboard** with an option to enable KOReader's virtual keyboard in text fields.
+
+The emoji font is required because Kindle's default fonts may not contain the necessary emoji glyphs. Without it, emojis may appear as question marks, missing boxes, or other incorrect characters.
 
 ## Use
 
@@ -31,24 +37,6 @@ Emoji insertion and emoji display are separate things:
 - Kindle e-ink refresh is slower than a phone. The keyboard is usable, but long-press popups and layout switching will not feel mobile-fast.
 
 If many emoji show as boxes, install or configure an emoji-capable fallback font in KOReader. A monochrome symbol font is usually more realistic on Kindle than full color emoji.
-
-## If emoji show as question marks
-
-This means KOReader is receiving the emoji text but cannot render the glyphs with its current UI/input fonts.
-
-Recommended Kindle fix:
-
-1. Download the monochrome `NotoEmoji-Regular.ttf` font, not `NotoColorEmoji.ttf`.
-2. Copy `NotoEmoji-Regular.ttf` to `koreader/fonts/`.
-3. In KOReader, open **Settings > Device > Additional UI fallback fonts** and enable `NotoEmoji-Regular.ttf`, then restart KOReader.
-
-If your KOReader build does not show that fallback-font menu, use the included patch:
-
-1. Copy `patches/1-emoji-ui-font-fallback.lua` to `koreader/patches/`.
-2. Make sure `NotoEmoji-Regular.ttf` is in `koreader/fonts/`.
-3. Restart KOReader fully.
-
-Do not use `NotoColorEmoji.ttf` first on Kindle. It is much larger and uses a color emoji format that is often unsupported or unreliable in embedded/e-ink FreeType rendering. The monochrome Noto Emoji font is the better fit for Paperwhite.
 
 ## Disclaimer
 
